@@ -1,62 +1,39 @@
-方法一：暴力递归
+# 两数之和-无序数组
+
 ```java
- public static void main(String[] args) {
-        System.out.println(calculate(10));
+/**
+ * 两数之和
+ * 给定一个整数数组nums，从数组中找出两个数满足相加之和等于目标target
+ * 假设每个输入只对应唯一的答案，而且不能使用相同的元素。
+ * 返回两数的下标，以数组形式返回
+ */
+public class Test {
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(solution(new int[]{1,2,3,4,5,6,7},10)));
+        System.out.println(Arrays.toString(solution(new int[]{1,2,3,4,5,6,7},10)));
     }
 
-    /**
-     * 斐波那契数列
-     * 求取斐波那契而数列的第N位的值
-     * 斐波那契数列：每一位的值等于他前两位数字之和。前两位固定0，1，2，3，5，8.。。。
-     */
-    public static int calculate(int num){
-        if(0==num){
-            return 0;
+    public static int[] solution(int[] nums,int target){
+        for (int i = 0; i< nums.length;i++){
+            for (int j=i + 1; j<nums.length;j++){
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i,j};
+                }
+            }
         }
-        if(1 == num){
-            return 1;
-        }
-        return calculate(num -1) + calculate(num -2);
-    }
-```
-
-方法二：去重递归
-```java
- public static int calculate1(int num){
-        int[] arr = new int[num + 1];
-        return recurse(arr,num);
+        return new int[0];
     }
 
-    public static int recurse(int[] arr,int num){
-        if(0 == num){
-            return 0;
+    public static int[] solution1(int[] nums,int target){
+        Map<Integer,Integer> map = new HashMap<>();
+        for (int i= 0;i<nums.length;i++){
+            if(map.containsKey(target - nums[i])){
+                return new int[]{map.get(target - nums[i]),i};
+            }
+            map.put(nums[i],i);
         }
-        if(1 == num){
-            return 1;
-        }
-        if(arr[num] != 0){
-            return arr[num];
-        }
-        arr[num] = recurse(arr,num-1) + recurse(arr,num -2);
-        return arr[num];
+        return new int[0];
     }
-```
-
-方法三：双指针迭代
-```java
- public static int iterate(int num){
-        if(0 == num){
-            return 0;
-        }
-        if(1 == num){
-            return 1;
-        }
-        int low = 0,high = 1;
-        for(int i = 2; i <= num ;i ++){
-            int sum = low + high;
-            low = high;
-            high =sum;
-        }
-        return high;
-    }
+}
 ```

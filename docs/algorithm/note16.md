@@ -1,3 +1,5 @@
+# 最长连续递增序列-贪心算法
+
 ```java
 public class MaxSeq {
 

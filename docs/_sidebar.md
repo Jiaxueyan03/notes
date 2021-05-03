@@ -20,11 +20,11 @@
 
 * algorithm
   * [链表反转](algorithm/note1.md)
-  * [素数个数统计](algorithm/note2.md)
-  * [x平方根](algorithm/note3.md)
+  * [x平方根](algorithm/note2.md)
+  * [素数个数统计](algorithm/note3.md)
   * [删除重复数组重的重复项](algorithm/note4.md)
-  * [寻找数组的中心下标](algorithm/note5.md)
-  * [三个数的最大面积--线性扫描](algorithm/note6.md)
+  * [三个数的最大面积--线性扫描](algorithm/note5.md)
+  * [寻找数组的中心下标](algorithm/note6.md)
   * [两数之和-无序数组](algorithm/note7.md)
   * [两数之和-有序数组](algorithm/note8.md)
   * [斐波那契队列-三种解法](algorithm/note9.md)

@@ -1,61 +1,63 @@
+# 斐波那契数列-三种解法
+方法一：暴力递归
 ```java
-public class ArrangeCoin{
-
-    public static void main(String[] args) {
-        System.out.println(arrangeConis(10));
-        System.out.println(arrangeConis2(10));
-        System.out.println(arrangeCoins(10));
+ public static void main(String[] args) {
+        System.out.println(calculate(10));
     }
+
     /**
-     * 排列硬币
-     * 总共有n枚硬币，将它们摆成一个阶梯形状，第k行就正好有k枚硬币，给定一个数字n，找出可形成完整阶梯行的总行数，
-     * n是一个非负整数，并且在32位有符号整形范围。
+     * 斐波那契数列
+     * 求取斐波那契而数列的第N位的值
+     * 斐波那契数列：每一位的值等于他前两位数字之和。前两位固定0，1，2，3，5，8.。。。
      */
-
-    // 暴力算法 迭代
-    public static int arrangeConis(int n){
-        for(int i= 1; i <= n;i ++){
-            n = n-i;
-            if(n <= i){
-              return i;
-            }
-        }
-        return 0;
-    }
-
-    // 二分查找
-    public static int arrangeConis2(int n){
-      int low= 0 ,high = n;
-      while (low <= high){
-          int mid = (low + high)/2 + low;
-          int cost = (mid + 1) * mid/2;
-          if(cost == mid){
-              return mid;
-          }
-          if(cost > n){
-              high = mid - 1;
-          }else {
-              low = mid + 1;
-          }
-      }
-        return high;
-    }
-
-// 牛顿迭代 (x + n/x)/2
-    public static int arrangeCoins(int n){
-        if(n == 0){
+    public static int calculate(int num){
+        if(0==num){
             return 0;
         }
-        return (int)sqrt(n,n);
+        if(1 == num){
+            return 1;
+        }
+        return calculate(num -1) + calculate(num -2);
+    }
+```
+
+方法二：去重递归
+```java
+ public static int calculate1(int num){
+        int[] arr = new int[num + 1];
+        return recurse(arr,num);
     }
 
-    private static double sqrt(double x,int n){
-       double res = (x + (2 * n -x))/2;
-       if(res == x){
-           return x;
-       }else {
-           return sqrt(res,n);
-       }
+    public static int recurse(int[] arr,int num){
+        if(0 == num){
+            return 0;
+        }
+        if(1 == num){
+            return 1;
+        }
+        if(arr[num] != 0){
+            return arr[num];
+        }
+        arr[num] = recurse(arr,num-1) + recurse(arr,num -2);
+        return arr[num];
     }
-}
+```
+
+方法三：双指针迭代
+```java
+ public static int iterate(int num){
+        if(0 == num){
+            return 0;
+        }
+        if(1 == num){
+            return 1;
+        }
+        int low = 0,high = 1;
+        for(int i = 2; i <= num ;i ++){
+            int sum = low + high;
+            low = high;
+            high =sum;
+        }
+        return high;
+    }
 ```

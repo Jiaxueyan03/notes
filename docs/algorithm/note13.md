@@ -1,51 +1,34 @@
+# 子数组最大平均数-滑动窗口
+
 ```java
-public class TreeDeep {
+public class AvgArray {
+
     public static void main(String[] args) {
-        TreeNode node7 = new TreeNode(7,null,null);
-        TreeNode node6 = new TreeNode(6,node7,null);
-        TreeNode node5 = new TreeNode(5,null,null);
-        TreeNode node4 = new TreeNode(4,null,null);
-        TreeNode node3 = new TreeNode(3,node6,null);
-        TreeNode node2 = new TreeNode(2,node4,node5);
-        TreeNode node1 = new TreeNode(1,node2,node3);
-        System.out.println(minDepth(node1));
+        System.out.println(findMaxAverage(new int[]{1,12,-5,-6,50,3},4));
     }
 
     /**
-     * 二叉树的最小深度
-     * 给定一个二叉树，找出其最小深度。
-     * 最小深度是从跟节点到最近叶子结点的最短路径上的节点数量。
-     * 深度优先 广度优先
-     * @param root  深度递归
+     * 子数组最大平均数
+     * 给定一个整数数组，找出平均数最大且长度为K的下标连续子数组，并输出该最大平均数
+     * 输入：{1,12,-5,-6,50,3} k=4
+     * 输出12。75
+     * 最大平均数（12-5-6+50）/4=12。75
+     * @param nums
+     * @param k
      * @return
      */
-    public static int minDepth(TreeNode root) {
-        if(root == null){
-            return 0;
+    public static double findMaxAverage(int[] nums,int k){
+        int sum = 0;
+        int n = nums.length;
+        for(int i= 0;i< k;i++){
+            sum += nums[i];
         }
-        if(root.left == null && root.right == null){
-            return 1;
+        int max = sum;
+        for(int i = k; i< n;i++){
+            sum = sum - nums[i-k] + nums[i];
+            max = Math.max(sum,max);
         }
-        int min = Integer.MAX_VALUE;
-         if(root.left != null){
-             min= Math.min(minDepth(root.left),min);
-         }
-         if(root.right != null){
-             min = Math.min(minDepth(root.right),min);
-         }
-
-        return min +1;
-    }
-
-    static class TreeNode{
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int val,TreeNode left,TreeNode right){
-            this.val=val;
-            this.left=left;
-            this.right=right;
-        }
+        return 1.0 * max/4;
     }
 }
 ```
