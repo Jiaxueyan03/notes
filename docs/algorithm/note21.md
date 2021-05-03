@@ -1,5 +1,9 @@
-# 二叉树遍历-前序-递归
+# 二叉树遍历-后序-递归
+
 ```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class BinaryTree {
 
     public static void main(String[] args) {
@@ -10,7 +14,9 @@ public class BinaryTree {
         TreeNode node3 = new TreeNode(3, null, null);
         TreeNode node2 = new TreeNode(2, node4, node5);
         TreeNode node1 = new TreeNode(1, node2, node3);
-        preorder(node1);
+//        preorder(node1);
+//        centerOrder(node1);
+          afterOrder(node1);
     }
 
     /**
@@ -22,15 +28,16 @@ public class BinaryTree {
      * 递归遍历：使用递归方法遍历
      * 迭代遍历：使用迭代方法实现递归函数，与递归等价，morris遍历
      */
-    public static void preorder(TreeNode root){
+
+    // 后序
+    public static void afterOrder(TreeNode root){
         if(root == null){
             return;
         }
-        System.out.println(root.val); // 第一次成为栈顶元素打印
-        preorder(root.left);
-        preorder(root.right);
+        afterOrder(root.left);
+        afterOrder(root.right);
+        System.out.println(root.val); // 第三次成为栈顶元素打印s
     }
-
 
     static class TreeNode {
         int val;
@@ -53,4 +60,5 @@ public class BinaryTree {
         }
     }
 }
+
 ```

@@ -38,6 +38,10 @@
   * [柠檬水找零-贪心算法](algorithm/note17.md)
   * [三角形最大周长-贪心算法](algorithm/note18.md)
   * [二叉树遍历-前序-递归](algorithm/note19.md)
+  * [二叉树遍历-中序-递归](algorithm/note20.md)
+  * [二叉树遍历-后序-递归](algorithm/note21.md)
+  * [二叉树遍历-中层序-递归](algorithm/note22.md)
 
 * notes
-  * [mysql](notes/mysql.md)
+  * [MYSQL](notes/mysql.md)
+  * [MQ](notes/mq.md)
