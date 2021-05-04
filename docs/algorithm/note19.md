@@ -1,4 +1,4 @@
-# 二叉树遍历-前序-递归
+# 二叉树遍历-前序-递归-迭代
 ```java
 public class BinaryTree {
 
@@ -29,6 +29,22 @@ public class BinaryTree {
         System.out.println(root.val); // 第一次成为栈顶元素打印
         preorder(root.left);
         preorder(root.right);
+    }
+
+     // 根左右 栈：后进先出
+     public static void preorder2(TreeNode root){
+        if(root != null){
+           Stack<TreeNode> stack = new Stack<>();
+           stack.add(root);
+           while (!stack.isEmpty()){
+               root = stack.pop();
+               if(root != null){
+                   System.out.println(root.val);
+                   stack.push(root.right);
+                   stack.push(root.left);
+               }
+           }
+        }
     }
 
 

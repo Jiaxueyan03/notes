@@ -39,6 +39,29 @@ public class BinaryTree {
         System.out.println(root.val); // 第三次成为栈顶元素打印s
     }
 
+     // 后序 左右根
+    public static void afterOrder2(TreeNode root){
+        if(root != null){
+          Stack<TreeNode> stack = new Stack<>();
+          TreeNode prev = null;
+          while (!stack.isEmpty() || root != null){
+              while(root != null){
+                  stack.push(root);
+                  root = root.left;
+              }
+              root = stack.pop();
+              if(root.right == null || root.right == prev){
+                  System.out.println(root.val);
+                  prev = root;
+                  root = null;
+              }else {
+                  stack.push(root);
+                  root = root.right;
+              }
+          }
+        }
+    }
+
     static class TreeNode {
         int val;
         TreeNode left;

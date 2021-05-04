@@ -31,6 +31,24 @@ public class BinaryTree {
         centerOrder(root.right);
     }
 
+    // 中序 左根右
+    public static void centerOrder2(TreeNode root){
+        if(root != null){
+            Stack<TreeNode> stack = new Stack<>();
+            while (!stack.isEmpty() || root != null){
+                if(root != null){
+                    stack.push(root);
+                    root = root.left;
+                }else{
+                   root = stack.pop();
+                    System.out.println(root.val);
+                    root = root.right;
+            }
+        }
+        }
+    }
+
+
     static class TreeNode {
         int val;
         TreeNode left;

@@ -47,6 +47,20 @@ public class BinaryTree {
         levelOrder(root.right,2*i+1,list);
     }
 
+     // 层序 上上往下 从左往右
+    public static void levelOrder2(TreeNode root){
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.add(root);
+            while (!queue.isEmpty()){
+                TreeNode node = queue.poll();
+                if(node != null){
+                    System.out.println(node.val);
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            }
+    }
+
     static class TreeNode {
         int val;
         TreeNode left;
