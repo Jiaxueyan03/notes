@@ -45,3 +45,4 @@
 * notes
   * [MYSQL](notes/mysql.md)
   * [MQ](notes/mq.md)
+  * [Linux](notes/Linux.md)
