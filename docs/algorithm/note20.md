@@ -48,6 +48,34 @@ public class BinaryTree {
         }
     }
 
+    // 二叉树遍历-线索二叉树-morris
+    public static  void morrisMid(TreeNode curr){
+        if(curr == null){
+            return;
+        }
+        TreeNode mostRight = null;
+        while (curr != null){
+            mostRight = curr.left;
+            if(mostRight != null){
+                while (mostRight.right != null && mostRight.right != curr){
+                    mostRight = mostRight.right;
+                }
+                if(mostRight.right == null){//       建立线索指针
+                    mostRight.right = curr;
+//                    System.out.println(curr.val);
+                    curr = curr.left;
+                    continue;
+                }else{// mostRight.right = curr 删除线索指针
+                    mostRight.right = null;
+                }
+            }else {
+//                System.out.println(curr.val);
+            }
+            System.out.println(curr.val);
+            curr = curr.right;
+        }
+    }
+
 
     static class TreeNode {
         int val;

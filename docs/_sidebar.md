@@ -43,6 +43,4 @@
   * [二叉树遍历-中层序-递归-迭代](algorithm/note22.md)
 
 * notes
-  * [MYSQL](notes/mysql.md)
-  * [MQ](notes/mq.md)
-  * [Linux](notes/Linux.md)
+  
