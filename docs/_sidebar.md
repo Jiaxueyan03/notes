@@ -43,6 +43,7 @@
   * [二叉树遍历-中层序-递归-迭代](algorithm/note22.md)
   * [省份数量](algorithm/note23.md)
   * [预测赢家](algorithm/note24.md)
+  * [香槟塔](algorithm/note25.md)
 
 * notes
   
