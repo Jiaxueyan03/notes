@@ -42,6 +42,7 @@
   * [二叉树遍历-后序-递归-迭代](algorithm/note21.md)
   * [二叉树遍历-中层序-递归-迭代](algorithm/note22.md)
   * [省份数量](algorithm/note23.md)
+  * [预测赢家](algorithm/note24.md)
 
 * notes
   
