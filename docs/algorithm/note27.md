@@ -72,3 +72,74 @@ public class Rob {
 ```
 
 ## 首位相连
+```java
+public class Rob {
+    public static void main(String[] args) {
+        int nums[] = new int[]{1, 2, 3, 1};
+        int nums1[] = new int[]{2, 7, 9, 3, 1};
+        TreeNode node5 = new TreeNode(1,null,null);
+        TreeNode node4 = new TreeNode(3,null,null);
+        TreeNode node3 = new TreeNode(3,null,node5);
+        TreeNode node2 = new TreeNode(2,null,node4);
+        TreeNode node1 = new TreeNode(3,node2,node3);
+        int[] i = dfs(node1);
+        System.out.println(Math.max(i[0],i[0]));
+
+    }
+    /**
+     * 二叉树
+     *
+     * @param nums
+     * @return
+     */
+    static int maxMoney4(int[] nums, int start, int end) {
+        int first = nums[start], second = Math.max(nums[start], nums[start + 1]);
+        for (int i = start + 2; i <= end; i++) {
+            int temp = second;
+            second = Math.max(first + nums[i], second);
+            first = temp;
+        }
+        return second;
+    }
+
+    /**
+     * 打家劫舍3
+     * 在上次打劫完一条接到之后和一圈房屋之后，小偷又发现了一个新的可行窃得地区。这个地区只有一个入口
+     * ，我们称之为“根”。除了“根”之外，每栋房子有且只有一个“父”房子与之相连。一番侦察之后，聪明得小偷意识到“这个地方得所哟匢得排列类似于一棵二叉树”。
+     * 如果两个直接相连得房子在同一天晚上被打劫，房屋将自动报警。
+     * 计算在不触动警报得情况下，小偷一晚能到盗取得最高金额。
+     *
+     * 深度优先搜索
+     * @param node
+     * @return
+     */
+    public static int[] dfs(TreeNode node){
+        // int[]{select的最优解,notSelect的最优解}
+        if(null == node){
+            return new int[]{0,0};
+        }
+        int[] l = dfs(node.left);
+        int[] r = dfs(node.right);
+        int select = node.val + l[1]+r[1];
+        int notSelect = Math.max(l[0],l[1]) + Math.max(r[0],r[1]);
+        return new int[]{select,notSelect};
+    }
+
+
+    static class TreeNode{
+        int val;
+        TreeNode left;
+        TreeNode right;
+        int deep;
+        TreeNode(int val){
+            this.val=val;
+        }
+        TreeNode(int val,TreeNode left,TreeNode right){
+            this.val=val;
+            this.left=left;
+            this.right=right;
+        }
+    }
+}
+
+```
