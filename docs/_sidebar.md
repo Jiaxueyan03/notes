@@ -45,6 +45,7 @@
   * [预测赢家](algorithm/note24.md)
   * [香槟塔](algorithm/note25.md)
   * [井字游戏](algorithm/note26.md)
+  * [打家劫舍](algorithm/note27.md)
 
 * notes
   
