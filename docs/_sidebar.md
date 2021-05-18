@@ -48,5 +48,5 @@
   * [打家劫舍](algorithm/note27.md)
   * [Dota2参议院](algorithm/note28.md)
   * [优势洗牌](algorithm/note29.md)
-* notes
   
+* notes
