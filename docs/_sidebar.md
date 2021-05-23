@@ -44,7 +44,8 @@
   * [省份数量](algorithm/note23.md)
   * [预测赢家](algorithm/note24.md)
   * [香槟塔](algorithm/note25.md)
+  * [井字游戏](algorithm/note26.md)
   * [String Search](algorithm/note27.md)
-
-* notes
-  
+  * [Dota2参议院](algorithm/note28.md)
+  * [优势洗牌](algorithm/note29.md)
+  * [打家劫舍](algorithm/note30.md)
